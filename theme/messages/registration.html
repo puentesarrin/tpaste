@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<p>Hello {{ user["username"] }},</p>
+<p>Please, confirm your account haciendo click en este enlace:</p>
+<p>
+    {{ "%(url)s/confirm-account?email=%(email)s&token=%(token)s" % { "url": url, "email": user["email"], "token": user["join"]["token"]} }}
+</p>
+<p>Una vez confirmado tendrás acceso y todas las notificaciones futuras serán enviadas a esta dirección de correo.<p>
+<p>
+    Si recibiste este mensaje por error y no te registraste, haz clic
+    <a href="{{ "%(url)s/delete-confirm?email=%(email)s&token=%(token)s" % { "url": url, "email": user["email"], "token": user["join"]["token"]} }}">aquí</a>.
+</p>
+{% end %}

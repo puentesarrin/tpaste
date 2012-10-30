@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>
+            {% block title %}{% end %}tpaste
+        </title>
+        {% module GoogleAnalyticsModule() %}
+    </head>
+    <body>
+        {% block header %}
+            <header>
+                <h1><a href="/">tpaste<a></h1>
+            </header>
+        {% end %}
+        <div id="menu">
+            {% module MenuModule() %}
+        </div>
+        <div id="usermenu">
+            {% module UserMenuModule() %}
+        </div>
+        <div id="content">
+            {% block content %}{% end %}
+        </div>
+        {% block footer %}
+            <footer>
+            </footer>
+        {% end %}
+    </body>
+</html>

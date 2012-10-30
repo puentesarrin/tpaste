@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block title %}
+Login -
+{% end %}
+
+{% block content %}
+    {% module LoginModule(email=email, message=message, next_page=next_page) %}
+    <a href="recoverpassword">Forgot your password?</a>
+{% end %}

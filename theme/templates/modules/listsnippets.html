@@ -1,0 +1,10 @@
+<ul>
+    {% for snippet in snippets %}
+    <li>
+        <a href="/{{ snippet['token'] }}">{{ snippet["title"] }}</a>
+        <em>
+            - {{ snippet['date'] }}
+        </em>
+    </li>
+    {% end %}
+</ul>

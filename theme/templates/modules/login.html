@@ -1,0 +1,16 @@
+<a href="/login"><h2>Login</h2></a>
+<form action="/login" method="post">
+    <dl>
+        <dt><label for="email">Email:</label></dt>
+        {% if not email %}
+            <dd><input type="text" id="email" name="email" /></dd>
+        {% else %}
+            <dd><input type="text" id="email" name="email" value="{{ email }}" /></dd>
+        {% end %}
+        <dt><label for="password">Password:</label></dt>
+        <dd><input type="password" id="password" name="password" /></dd>
+    </dl>
+    <input type="hidden" name="next" value="{{ next_page }}" />
+    {% raw xsrf_form_html() %}
+    <input type="submit" value="Login" />
+</form>

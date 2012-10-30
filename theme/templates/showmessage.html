@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{ message[0] }} -
+{% end %}
+
+{% block content %}
+    <h2>{{ message[0] }}</h2>
+    <p>{%raw message[1] %}</p>
+{% end %}

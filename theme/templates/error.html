@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>{{ message[0] }}</h2>
+    <p>{% raw message[1] %}</p>
+    {% if stack_trace %}
+        <pre>{{ stack_trace }}</pre>
+    {% end %}
+{% end %}

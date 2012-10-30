@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {% if lang %}
+        {% from tpaste import messages %}
+        Submit your {{ messages.languages[lang] }} snippet -
+    {% end %}
+{% end %}
+
+{% block content %}
+    {% module NewSnippetModule(lang=lang) %}
+{% end %}

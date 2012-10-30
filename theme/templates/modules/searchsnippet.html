@@ -1,0 +1,7 @@
+<form action="/search" method="get">
+    <dl>
+        <dt>{% raw form.term.label() %}:</dt>
+        <dd>{% raw form.term %}</dd>
+    </dl>
+    <input type="submit" value="Search!" />
+</form>

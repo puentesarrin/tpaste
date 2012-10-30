@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{ lang_name }} snippets -
+{% end %}
+
+{% block content %}
+    <h2>{{lang_name}} snippets</h2>
+    <em>
+        <a href="/?lang={{ lang_code }}" title="Create a new {{ lang_name }} snippet">New</a>
+    </em>
+    {% if not len(snippets) %}
+        <h3>No snippets registered.</h3>
+    {% else %}
+        {% if len(snippets) == 1 %}
+            <h3>Last {{ lang_name }} snippet:</h3>
+        {% else %}
+            <h3>Last {{ len(snippets) }} {{ lang_name }} snippets:</h3>
+        {% end %}
+        {% module ListSnippetsModule(snippets=snippets) %}
+    {% end %}
+{% end %}

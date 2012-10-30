@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}
+Supported languages -
+{% end %}
+
+{% block content %}
+    {% if languages %}
+        <ul>
+        {% for k, v in languages.iteritems() %}
+            <li>
+                <a href="/lang/{{ k }}">{{ v }}</a>
+            </li>
+        {% end %}
+        </ul>
+    {% end %}
+{% end %}

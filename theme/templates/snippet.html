@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {% if not snippet %}
+        No snippets registered -
+    {% else %}
+        {{ snippet["title"] }} -
+    {% end %}
+{% end %}
+
+{% block content %}
+    {% module SnippetModule(snippet=snippet) %}
+{% end %}

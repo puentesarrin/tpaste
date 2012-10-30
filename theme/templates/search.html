@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block title %}
+Search a snippet -
+{% end %}
+
+{% block content %}
+    {% module SearchSnippetModule() %}
+    {% module ListSnippetsModule(snippets=snippets)%}
+{% end %}

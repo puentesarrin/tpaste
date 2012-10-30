@@ -1,0 +1,14 @@
+<form action="/new" method="post">
+    <dl>
+        <dt>{% raw form.title.label() %}:</dt>
+        <dd>{% raw form.title %}</dd>
+        <dt>{% raw form.author.label() %}:</dt>
+        <dd>{% raw form.author %}</dd>
+        <dt>{% raw form.syntax.label() %}:</dt>
+        <dd>{% raw form.syntax %}</dd>
+        <dt>{% raw form.content.label() %}:</dt>
+        <dd>{% raw form.content %}</dd>
+    </dl>
+    {% raw xsrf_form_html() %}
+    <input type="submit" value="Submit it!" />
+</form>

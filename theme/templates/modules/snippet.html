@@ -1,0 +1,25 @@
+{% if not snippet %}
+    <h2>No snippets registered.</h2>
+{% else %}
+    {% from tpaste import messages %}
+    <fieldset>
+        <legend>
+            {{ snippet["title"] }}
+            <a href="/raw/{{ snippet['token'] }}">View raw</a>
+        </legend>
+        <dl>
+            <dt>Title:</dt>
+            <dd>{{ snippet["title"] }}</dd>
+            <dt>Author:</dt>
+            <dd>{{ snippet["author"] }}</dd>
+            <dt>Syntax:</dt>
+            <dd>
+                <a href="/lang/{{ snippet['syntax'] }}">
+                    {{ messages.languages[snippet["syntax"]] }}
+                </a>
+            </dd>
+            <dt>Content:</dt>
+            <dd>{% raw snippet["html"] %}</dd>
+        </dl>
+    </fieldset>
+{% end %}

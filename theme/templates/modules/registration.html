@@ -1,0 +1,15 @@
+<a href="/register"><h2>Register</h2></a>
+<form action="/register" method="post">
+    <dl>
+        <dt>{% raw form.username_reg.label() %}:</dt>
+        <dd>{% raw form.username_reg %}</dd>
+        <dt>{% raw form.email_reg.label() %}:</dt>
+        <dd>{% raw form.email_reg %}</dd>
+        <dt>{% raw form.password_reg.label() %}:</dt>
+        <dd>{% raw form.password_reg %}</dd>
+        <dt>{% raw form.password_match.label() %}:</dt>
+        <dd>{% raw form.password_match %}</dd>
+    </dl>
+    {% raw xsrf_form_html() %}
+    <input type="submit" value="Register" />
+</form>
