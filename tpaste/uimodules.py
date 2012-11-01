@@ -3,6 +3,12 @@ import tornado.web
 from tpaste import forms
 
 
+class PoweredByModule(tornado.web.UIModule):
+
+    def render(self):
+        return self.render_string('modules/poweredby.html')
+
+
 class RegistrationModule(tornado.web.UIModule):
 
     def render(self):
