@@ -25,7 +25,7 @@ class TPasteApplication(tornado.web.Application):
         urls = routes.urls + \
             [(r"/(favicon\.ico)", tornado.web.StaticFileHandler,
                  {"path":settings['static_path']})]
-        self._con = motor.MotorConnection(options.db_uri)
+        self._con = motor.MotorClient(options.db_uri)
         self._db = self._con.open_sync()[options.db_name]
         tornado.web.Application.__init__(self, urls, **settings)
 
