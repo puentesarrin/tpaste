@@ -6,6 +6,7 @@ from tornado import options
 
 
 def get_options():
+    #Application
     options.define("configfilename", default="tpaste.conf", type=str,
         help="Configuration filename")
     options.define('debug', default=True, type=bool,
@@ -23,10 +24,14 @@ def get_options():
         help="Set Google Analytics tracker code")
     options.define('base_url', default="http://localhost", type=str,
         help="Base url host")
+
+    #MongoDB
     options.define('db_uri', default='mongodb://localhost:27017/?safe=true',
         type=str, help='MongoDB database uri')
     options.define('db_name', default='tpaste', type=str,
         help='MongoDB database name')
+
+    #SMTP
     options.define('smtp_host', default="smtp.gmail.com", type=str,
         help="SMTP server host")
     options.define('smtp_port', default=587, type=int,
