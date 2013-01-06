@@ -1,3 +1,4 @@
+{% from tornado.options import options %}
 <html>
     <head>
         <title>
@@ -9,6 +10,7 @@
         {% block header %}
             <header>
                 <h1><a href="/">tpaste<a></h1>
+                <h3>{{ options.slogan }}</h3>
             </header>
         {% end %}
         <div id="menu">

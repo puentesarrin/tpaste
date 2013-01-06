@@ -24,6 +24,9 @@ def get_options():
         help="Set Google Analytics tracker code")
     options.define('base_url', default="http://localhost", type=str,
         help="Base url host")
+    options.define('slogan', default="Web application for saving and sharing "
+        "text snippets. Using Tornado, MongoDB and Motor.", type=str,
+        help="Slogan")
 
     #MongoDB
     options.define('db_uri', default='mongodb://localhost:27017/?safe=true',
