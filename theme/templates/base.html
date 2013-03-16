@@ -10,25 +10,38 @@
         {% module GoogleAnalyticsModule() %}
     </head>
     <body>
-        {% block header %}
-            <header>
-                <h1><a href="/">tpaste<a></h1>
-                <h3>{{ options.slogan }}</h3>
-            </header>
-        {% end %}
-        <div id="menu">
-            {% module MenuModule() %}
+        <script src="http://code.jquery.com/jquery.js"></script>
+        <script src="{{ static_url('js/bootstrap.min.js') }}"></script>
+        <header class="jumbotron subhead" id="overview">
+            <div class="container-fluid">
+                <div class="hero-unit">
+                    <a href="/">
+                        <h1>tpaste</h1>
+                    </a>
+                    <p>{{ options.slogan }}</p>
+                </div>
+                {% block header %}{% end %}
+            </div>
+        </header>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span2">
+                    {% module MenuModule() %}
+                    {% module UserMenuModule() %}
+                    {% block sidebar %}{% end %}
+                </div>
+                <div class="span7">
+                    {% block content %}{% end %}
+                </div>
+                <div class="span3">
+                </div>
+            </div>
         </div>
-        <div id="usermenu">
-            {% module UserMenuModule() %}
-        </div>
-        <div id="content">
-            {% block content %}{% end %}
-        </div>
-        {% block footer %}
-            <footer>
+        <footer class="footer">
+            <div class="container-fluid pull-right">
+                {% block footer %}{% end %}
                 {% module PoweredByModule() %}
-            </footer>
-        {% end %}
+            </div>
+        </footer>
     </body>
 </html>
