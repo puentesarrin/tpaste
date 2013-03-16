@@ -5,13 +5,18 @@ Supported languages -
 {% end %}
 
 {% block content %}
-    {% if languages %}
-        <ul>
-        {% for k, v in languages.iteritems() %}
-            <li>
-                <a href="/lang/{{ k }}">{{ v }}</a>
-            </li>
+    <fieldset>
+        <legend>
+            <h2>Supported languages</h2>
+        </legend>
+        {% if languages %}
+            <ul class="unstyled inline">
+                {% for k, v in languages.iteritems() %}
+                    <li>
+                        <a href="/lang/{{ k }}">{{ v }}</a>
+                    </li>
+                {% end %}
+            </ul>
         {% end %}
-        </ul>
-    {% end %}
+    </fieldset>
 {% end %}
