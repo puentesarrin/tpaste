@@ -1,17 +1,19 @@
 {% from tornado.options import options as opts %}
-<ul>
-    {% if not current_user %}
-        <li><a href="/register">Register</a></li>
-        <li><a href="/login">Login</a></li>
-    {% else %}
-        <li><a href="/account">My account</a></li>
-        <li><a href="/preferences">My preferences</a></li>
-        <li><a href="/mysnippets">My snippets</a></li>
-        <li>
-            <form action="/logout" method="post">
-                {% raw xsrf_form_html() %}
-                <input type="submit" value="Logout" />
-            </form>
-        </li>
-    {% end %}
-</ul>
+<div class="row-fluid">
+    <ul class="nav nav-pills nav-stacked">
+        {% if not current_user %}
+            <li><a href="/register">Register</a></li>
+            <li><a href="/login">Login</a></li>
+        {% else %}
+            <li><a href="/account">My account</a></li>
+            <li><a href="/preferences">My preferences</a></li>
+            <li><a href="/mysnippets">My snippets</a></li>
+            <li>
+                <form action="/logout" method="post">
+                    {% raw xsrf_form_html() %}
+                    <input type="submit" value="Logout" />
+                </form>
+            </li>
+        {% end %}
+    </ul>
+</div>
