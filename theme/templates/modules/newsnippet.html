@@ -1,14 +1,40 @@
 <form action="/new" method="post">
-    <dl>
-        <dt>{% raw form.title.label() %}:</dt>
-        <dd>{% raw form.title %}</dd>
-        <dt>{% raw form.author.label() %}:</dt>
-        <dd>{% raw form.author %}</dd>
-        <dt>{% raw form.syntax.label() %}:</dt>
-        <dd>{% raw form.syntax %}</dd>
-        <dt>{% raw form.content.label() %}:</dt>
-        <dd>{% raw form.content %}</dd>
-    </dl>
-    {% raw xsrf_form_html() %}
-    <input type="submit" value="Submit it!" />
+    <fieldset>
+        <div class="row-fluid">
+            <div class="span4">
+                <div class="control-group">
+                    {% raw form.title.label(class_="control-label") %}
+                    <div class="controls">
+                        {% raw form.title(value=snippet.get('title', ''), placeholder="Title", class_="input-block-level") %}
+                    </div>
+                </div>
+                <div class="control-group">
+                    {% raw form.author.label(class_="control-label") %}
+                    <div class="controls">
+                        {% raw form.author(value=snippet.get('author', ''), placeholder="Author", class_="input-block-level") %}
+                    </div>
+                </div>
+                <div class="control-group">
+                    {% raw form.syntax.label(class_="control-label") %}
+                    <div class="controls">
+                        {% raw form.syntax %}
+                    </div>
+                </div>
+            </div>
+            <div class="span8">
+                <div class="control-group">
+                    {% raw form.content.label(class_="control-label") %}
+                    <div class="controls">
+                        {% raw form.content(placeholder="Content", class_="input-block-level", rows="25") %}
+                    </div>
+                </div>
+            </div>
+            {% raw xsrf_form_html() %}
+        </div>
+    </fieldset>
+    <div class="form-actions">
+        <button type="submit" class="btn btn-primary pull-right">
+            <i class="icon-ok"></i>Submit it!
+        </button>
+    </div>
 </form>

@@ -58,9 +58,9 @@ class SnippetModule(tornado.web.UIModule):
 
 class NewSnippetModule(tornado.web.UIModule):
 
-    def render(self, lang=None):
+    def render(self, lang=None, snippet={}):
         return self.render_string("modules/newsnippet.html",
-            form=forms.NewSnippetForm(lang=lang))
+            form=forms.NewSnippetForm(lang=lang), snippet=snippet)
 
 
 class SearchSnippetModule(tornado.web.UIModule):
