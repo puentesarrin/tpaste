@@ -1,7 +1,15 @@
 # -*- coding: utf-8 *-*
-from wtforms import Form, TextField, PasswordField, TextAreaField, SelectField
+from wtforms import (Form, HiddenField, PasswordField, TextAreaField,
+                     TextField, SelectField)
 from wtforms.validators import Required, Email, EqualTo
 from tpaste import messages
+
+
+class LoginForm(Form):
+
+    email = TextField(u"E-mail", [Required(), Email()])
+    password = PasswordField(u"Password", [Required()])
+    next_ = HiddenField()
 
 
 class RegistrationForm(Form):

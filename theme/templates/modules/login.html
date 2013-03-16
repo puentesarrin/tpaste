@@ -1,16 +1,29 @@
-<a href="/login"><h2>Login</h2></a>
-<form action="/login" method="post">
-    <dl>
-        <dt><label for="email">Email:</label></dt>
-        {% if not email %}
-            <dd><input type="text" id="email" name="email" /></dd>
-        {% else %}
-            <dd><input type="text" id="email" name="email" value="{{ email }}" /></dd>
-        {% end %}
-        <dt><label for="password">Password:</label></dt>
-        <dd><input type="password" id="password" name="password" /></dd>
-    </dl>
-    <input type="hidden" name="next" value="{{ next_page }}" />
-    {% raw xsrf_form_html() %}
-    <input type="submit" value="Login" />
+{% from tpaste import forms %}
+{% set form = forms.LoginForm() %}
+<form class="form-horizontal" action="/login" method="post">
+    <fieldset>
+        <legend>Login</legend>
+        <div class="control-group">
+            {% raw form.email.label(class_="control-label") %}
+            <div class="controls">
+                {% raw form.email(placeholder="Email") %}
+            </div>
+        </div>
+        <div class="control-group">
+            {% raw form.password.label(class_="control-label") %}
+            <div class="controls">
+                {% raw form.password(placeholder="Password") %}
+            </div>
+        </div>
+        {% raw form.next_(value=_next or '') %}
+        {% raw xsrf_form_html() %}
+        <div class="control-group">
+            <div class="controls">
+                <button type="submit" class="btn">
+                    <i class="icon-lock"></i>
+                    Login
+                </button>
+            </div>
+        </div>
+    </fieldset>
 </form>

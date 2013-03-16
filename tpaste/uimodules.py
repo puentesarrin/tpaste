@@ -18,11 +18,9 @@ class RegistrationModule(tornado.web.UIModule):
 
 class LoginModule(tornado.web.UIModule):
 
-    def render(self, email=None, message=None, next_page="/"):
-        return self.render_string("modules/login.html",
-            email=email,
-            message=message,
-            next_page=next_page)
+    def render(self, email=None, message=None, _next="/"):
+        return self.render_string("modules/login.html", email=email,
+            message=message, _next=_next)
 
 
 class UserMenuModule(tornado.web.UIModule):

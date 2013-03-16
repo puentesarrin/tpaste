@@ -5,6 +5,17 @@ Login -
 {% end %}
 
 {% block content %}
-    {% module LoginModule(email=email, message=message, next_page=next_page) %}
+    {% if message %}
+        <div class="alert alert-error">
+            {{ message }}
+        </div>
+    {% end %}
+    <div class="row-fluid">
+        <div class="span12">
+            {% module LoginModule(email=email, message=message, _next=_next) %}
+        </div>
+    </div>
     <a href="recoverpassword">Forgot your password?</a>
 {% end %}
+
+

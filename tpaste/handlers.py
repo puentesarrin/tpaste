@@ -251,7 +251,7 @@ class LoginHandler(TPasteHandler):
         if self.current_user:
             self.redirect('/')
         self.render('login.html', email=None, message=None,
-            next_page=self.get_argument('next', '/'))
+            _next=self.get_argument('next', '/'))
 
     @tornado.web.asynchronous
     def post(self):
