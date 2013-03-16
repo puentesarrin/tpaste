@@ -1,5 +1,5 @@
 tornado
-git+git://github.com/ajdavis/mongo-python-driver.git@motor
+motor
 tornadomail
 pygments
 wtforms
