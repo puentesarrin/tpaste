@@ -96,6 +96,7 @@ class LanguageHandler(TPasteHandler):
     @tornado.web.asynchronous
     @tornado.gen.engine
     def get(self, language):
+        language = language.replace(' ', '+')
         if language not in messages.languages:
             raise tornado.web.HTTPError(404,
                 '%s is a unsupported language.' % language)

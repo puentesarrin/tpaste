@@ -13,6 +13,6 @@ urls = [
     (r"/search", handlers.SearchSnippetHandler),
     (r"/last", handlers.SnippetHandler),
     (r"/raw/(?P<token>[a-zA-Z0-9]+)", handlers.RawSnippetHandler),
-    (r"/lang/(?P<language>[a-z0-9-]+)", handlers.LanguageHandler),
+    (r"/lang/(?P<language>[a-z0-9-+]+)", handlers.LanguageHandler),
     (r"/(?P<token>[a-zA-Z0-9]+)", handlers.SnippetHandler),
     (r"/.*", handlers.NotFoundHandler)]
