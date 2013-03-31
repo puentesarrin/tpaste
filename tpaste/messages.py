@@ -1,5 +1,6 @@
 # -*- coding: utf-8 *-*
 from collections import OrderedDict
+from pygments.lexers import _mapping
 
 
 error_403 = ((u"We're sorry, restricted access!"),
@@ -65,41 +66,5 @@ sent_contact_form = u"Mensaje enviado desde formulario de contacto"
 failed_message_contact = (u"Falló el envío de mensaje de correo al enviar "
 u"mensaje desde formulario de contacto.")
 
-languages = OrderedDict([("aspx-cs", "ASP.NET - C#"),
-    ("aspx-vb", "ASP.NET - Visual Basic .NET"),
-    ("bash", "Bash"),
-    ("bat", "Batch"),
-    ("boo", "Boo"),
-    ("clojure", "Clojure"),
-    ("csharp", "C#"),
-    ("css", "CSS"),
-    ("dart", "Dart"),
-    ("delphi", "Delphi"),
-    ("django", "Django"),
-    ("erlang", "Erlang"),
-    ("fsharp", "F#"),
-    ("go", "Go"),
-    ("groovy", "Groovy"),
-    ("haskell", "Haskell"),
-    ("html", "HTML"),
-    ("java", "Java"),
-    ("javascript", "Javascript"),
-    ("json", "JSON"),
-    ("matlab", "MatLab"),
-    ("mysql", "MySQL"),
-    ("nginx", "nginx config file"),
-    ("numpy", "NumPy"),
-    ("perl", "Perl"),
-    ("php", "PHP"),
-    ("text", "Plain text"),
-    ("plpgsql", "Pl/pgSQL"),
-    ("postgresql", "PostgreSQL"),
-    ("powershell", "PowerShell"),
-    ("python", "Python"),
-    ("rst", "reStructered text"),
-    ("ruby", "Ruby"),
-    ("scala", "Scala"),
-    ("sql", "SQL"),
-    ("sqlite3", "SQLite"),
-    ("vbnet", "Visual Basic .NET"),
-    ("xml", "XML")])
+languages = OrderedDict([(l[2][0], l[1]) for l in (
+    sorted(_mapping.LEXERS.values(), key=lambda lang: lang[1]))])
