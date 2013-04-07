@@ -5,7 +5,7 @@ import tornado.web
 
 from tornado.options import options
 from tornado.template import Loader
-from tpaste import routes, uimodules, helpers
+from tpaste import routes, ui_modules, helpers
 
 
 class TPasteApplication(tornado.web.Application):
@@ -14,7 +14,7 @@ class TPasteApplication(tornado.web.Application):
         settings = {
             'static_path': os.path.join(options.theme_path, 'static'),
             'template_path': os.path.join(options.theme_path, 'templates'),
-            "ui_modules": uimodules,
+            "ui_modules": ui_modules,
             "cookie_secret": options.cookie_secret,
             "login_url": "/login",
             "xsrf_cookies": True,
