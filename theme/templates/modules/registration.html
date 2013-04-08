@@ -1,15 +1,32 @@
-<a href="/register"><h2>Register</h2></a>
-<form action="/register" method="post">
-    <dl>
-        <dt>{% raw form.username_reg.label() %}:</dt>
-        <dd>{% raw form.username_reg %}</dd>
-        <dt>{% raw form.email_reg.label() %}:</dt>
-        <dd>{% raw form.email_reg %}</dd>
-        <dt>{% raw form.password_reg.label() %}:</dt>
-        <dd>{% raw form.password_reg %}</dd>
-        <dt>{% raw form.password_match.label() %}:</dt>
-        <dd>{% raw form.password_match %}</dd>
-    </dl>
-    {% raw xsrf_form_html() %}
-    <input type="submit" value="Register" />
+<form class="form-horizontal" action="/register" method="post">
+    <fieldset>
+        <legend>Register</legend>
+        <div class="control-group">
+            {% raw form.username_reg.label(class_="control-label") %}
+            <div class="controls">
+                {% raw form.username_reg(placeholder="Email") %}
+            </div>
+        </div>
+        <div class="control-group">
+            {% raw form.email_reg.label(class_="control-label") %}
+            <div class="controls">
+                {% raw form.email_reg(placeholder="Email") %}
+            </div>
+        </div>
+        <div class="control-group">
+            {% raw form.password_reg.label(class_="control-label") %}
+            <div class="controls">
+                {% raw form.password_reg(placeholder="Password") %}
+            </div>
+        </div>
+        {% raw xsrf_form_html() %}
+        <div class="control-group">
+            <div class="controls">
+                <button type="submit" class="btn">
+                    <i class="icon-lock"></i>
+                    Register
+                </button>
+            </div>
+        </div>
+    </fieldset>
 </form>
